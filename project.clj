@@ -6,5 +6,5 @@
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [joda-time "2.9.2"]]
   :profiles {:dev {:dependencies [[midje "1.6.3"]
-                                  [im.chit/hara.time "2.2.16-SNAPSHOT"]]
+                                  [im.chit/hara.time "2.2.16"]]
                    :plugins [[lein-midje "3.1.3"]]}})

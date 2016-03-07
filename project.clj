@@ -1,4 +1,4 @@
-(defproject im.chit/hara.time.joda "2.2.16"
+(defproject im.chit/hara.time.joda "2.2.17"
   :description "joda time extensions for hara.time"
   :url "https://www.github.com/zcaudate/hara.time.joda"
   :license {:name "The MIT License"
@@ -6,5 +6,6 @@
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [joda-time "2.9.2"]]
   :profiles {:dev {:dependencies [[midje "1.6.3"]
-                                  [im.chit/hara.time "2.2.16"]]
+                                  [im.chit/hara.time "2.2.17"]
+                                  [im.chit/hara.io.scheduler "2.2.17"]]
                    :plugins [[lein-midje "3.1.3"]]}})

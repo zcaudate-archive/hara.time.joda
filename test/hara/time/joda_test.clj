@@ -11,8 +11,8 @@
   (-> (t/from-long 0 {:type DateTime :timezone "Asia/Kolkata"})
       (t/to-map))
   => {:type org.joda.time.DateTime,
-      :timezone "Asia/Kolkata", 
-      :year 1970, :month 1, :day 1, :day-of-week 4,
+      :timezone "Asia/Kolkata", :long 0
+      :year 1970, :month 1, :day 1,
       :hour 5, :minute 30, :second 0, :millisecond 0})
 
 (fact "See if it works together well"
@@ -37,7 +37,18 @@
                {:type DateTime
                 :timezone "GMT"})
       (t/to-map))
-  => {:type org.joda.time.DateTime,
+  => {:type org.joda.time.DateTime, :long 599619600000
       :timezone "Etc/GMT", 
-      :year 1989, :month 1, :day 1, :day-of-week 7,
-      :hour 1, :minute 0, :second 0, :millisecond 0})
+      :year 1989, :month 1, :day 1, 
+      :hour 1, :minute 0, :second 0, :millisecond 0}
+
+
+  (-> (t/parse "00 00 01 01 01 1989 +0000"
+               "ss mm HH dd MM yyyy Z"
+               {:type DateTime
+                :timezone "Asia/Kolkata"})
+      (t/to-map))
+  => {:type org.joda.time.DateTime, :long 599619600000
+      :timezone "Asia/Kolkata", 
+      :year 1989, :month 1, :day 1, 
+      :hour 6, :minute 30, :second 0, :millisecond 0})
